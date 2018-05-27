@@ -1,9 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.util.Calendar;
 
 import static com.google.common.truth.Truth.assertWithMessage;
 
@@ -19,8 +19,9 @@ public class DueDateCalculatorTest {
     public void givenADate_shouldGetBackTheRightDayNumber() {
         LocalDateTime monday = LocalDateTime.of(2018, Month.MAY, 28, 15,34);
 
-        int dayNumber = dueDateCalculator.getNumOfDay(monday);
+        DayOfWeek dayOfWeek = dueDateCalculator.getNumOfDay(monday);
 
-        assertWithMessage("Wrong Day number").that(dayNumber).isEqualTo(Calendar.MONDAY);
+        assertWithMessage("Wrong Day number").that(dayOfWeek).isEqualTo(DayOfWeek.MONDAY);
     }
+    
 }
